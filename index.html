@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <!-- High scores link -->
+    <div class="high-scores"><a href="high-scores.html">View high scores</a></div>
+
+    <!-- Timer  -->
+    <div class="countdown">Timer: <span id="time">0</span></div>
+
+    <!-- Main content -->
+      <div class="wrapper">
+
+        <!-- Intro screen -->
+        <div id="introduction" class="intro">
+            <h1>Coding Quiz Challenge</h1>
+            <p>
+                Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+            </p>
+            <button id="start-btn" class="start-btn btn">Start Quiz</button>
+        </div>
+        <!-- Intro screen ends -->
+
+        <!-- Questions section -->
+        <div id="questions-box" class="hide">
+            <h2 id="question">Ask A Question</h2>
+            <div id="answer-buttons" class="options">
+                <button class="btn">Option 1</button>
+                <button class="btn">Option 2</button>
+                <button class="btn">Option 3</button>
+                <button class="btn">Option 4</button>
+            </div>
+        </div>
+        <!-- Questions section ends-->
+
+        <!-- Results screen -->
+        <div id="results" class="hide">
+            <h2>All Done!</h2>
+            <p>Your final score is <span id="final-score"></span>.</p>
+            <p>
+                Enter Initials: <input type="text" id="initials" />
+            </p>
+        </div>
+        <!-- Results screen ends -->
+    </div>
+    <!-- Main content ends -->
+
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
