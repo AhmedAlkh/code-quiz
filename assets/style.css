@@ -5,6 +5,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.hidden {
+    display: none;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -31,3 +35,41 @@ body {
     color: violet;
     text-decoration: none;
 }
+
+.wrapper {
+    margin: 100px auto 0 auto;
+    max-width: 600px;
+}
+
+#start-btn {
+   text-align: center;
+}
+
+.high-scores {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+
+  .countdown {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .intro {
+      text-align: center;
+  }
+
+  .intro p {
+      text-align: center;
+  }
+
+  button {
+      width: 100px;
+      height: 30px;
+  }
+
+  button:hover {
+      background-color: violet;
+  }

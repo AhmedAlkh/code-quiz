@@ -12,7 +12,7 @@
     <div class="high-scores"><a href="high-scores.html">View high scores</a></div>
 
     <!-- Timer  -->
-    <div class="countdown">Timer: <span id="time">0</span></div>
+    <div class="countdown">Time: <span id="time">0</span></div>
 
     <!-- Main content -->
       <div class="wrapper">
@@ -28,7 +28,7 @@
         <!-- Intro screen ends -->
 
         <!-- Questions section -->
-        <div id="questions-box" class="hide">
+        <div id="questions-box" class="hidden">
             <h2 id="question">Ask A Question</h2>
             <div id="answer-buttons" class="options">
                 <button class="btn">Option 1</button>
@@ -40,12 +40,13 @@
         <!-- Questions section ends-->
 
         <!-- Results screen -->
-        <div id="results" class="hide">
+        <div id="results" class="hidden">
             <h2>All Done!</h2>
             <p>Your final score is <span id="final-score"></span>.</p>
             <p>
                 Enter Initials: <input type="text" id="initials" />
             </p>
+            <button id="submit-btn" class="submit-btn btn">Submit</button>
         </div>
         <!-- Results screen ends -->
     </div>
