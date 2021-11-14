@@ -1,37 +1,11 @@
 var startButton = document.querySelector("#start-btn");
-var questions = document.getElementById("#question");
+var questions = document.querySelector("#question");
+var time = document.queryselector("#time")
+var correctAnswer
+var score = 0;
 
-function startQuiz();
-
-function questions();
-
-
-/* Questions 
-
-Quetion:
-Choices:
-correctAnwer:
-
-Q: Commonly used data types do not include:
-A: strings, booleans, alerts, numbers.
-
-Q: The condition in an if / else statement is enclosed with ____ ?
-A: quotes, curly brackets, parenthesis, square brackets.
-
-Q: Arrays in JavaScript can be used to store ____ ?
-A: Numbers & Strings, Other arrays, Booleans, All of the above.
-
-Q: String Values must be enclosed within ____ when being assigned to variables.
-A: Commas, Curly brackets, Quotes, Parenthesis.
-
-Q: A very useful tool used during development and debugging for printing content to the debugger is:
-A: Javascript, Terminal/Bash, for loops, console.log.
-*/
-
-// Timer
-// var time = document.queryselector("#timer") - global
-
-/* function setTime() {
+// Timer 
+function setTime() {
     var countDown = setInterval(function () {
         counter --;
         if (counter === -1) {
@@ -39,15 +13,48 @@ A: Javascript, Terminal/Bash, for loops, console.log.
         }
         timer.textcontent = counter; 
     }, 1000);
-}
+};
+// Timer ends
 
-setTime(); - Call after first question
-*/
+function startQuiz() {
+    var showQuestions = document.getElementById("#questions");
+
+    //start timer when first question is revealed
+    setTime();
+};
+
+// Questions, options, answers
+var questions = [
+{
+title: "Commonly used data types do not include:",
+Choices: ["strings", "booleans", "alerts", "numbers",],
+correctAnswer: "alerts",
+},
+{
+title: "The condition in an if / else statement is enclosed with ____ ?",
+Choices: ["quotes", "curly brackets", "parenthesis", "square brackets",],
+correctAnswer: "parenthesis",
+},
+{
+title: "Arrays in JavaScript can be used to store ____ ?",
+Choices: ["Numbers & Strings", "Other arrays", "Booleans", "All of the above",],
+correctAnswer: "All of the above",
+},
+{
+title: "String Values must be enclosed within ____ when being assigned to variables.",
+Choices: ["Commas", "Curly brackets", "Quotes", "Parenthesis",],
+correctAnswer: "Quotes",
+},
+{
+title: "A very useful tool used during development and debugging for printing content to the debugger is:",
+Choices: ["Javascript", "Terminal/Bash", "for loops", "console.log",],
+correctAnswer: "console.log",
+},
+];
+// Questions, options, answers ends
 
 // Local storage
 /*
-
-var score = 0; - global variable
 
 When user clicks the submit buttons
 add click event listener

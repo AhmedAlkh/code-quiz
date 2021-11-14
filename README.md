@@ -1,8 +1,8 @@
 # code-quiz
 
 ## Updated
-- Highscore html and js added
-- pseudo coding added to js
+- Added stylesheet for highscores
+
 
 ## To do
 - Style with CSS

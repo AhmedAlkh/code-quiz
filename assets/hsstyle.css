@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.backBtn {
+    text-decoration: none;
+    padding: 6px 12px;
+    background-color: #4B0082;
+    color: white;
+    border-radius: 6px;
+
+}
+
+.backBtn:hover {
+    background-color: violet;
+}
