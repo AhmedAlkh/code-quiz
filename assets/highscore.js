@@ -1,13 +1,16 @@
-var storage = JSON.parse(localStorage.getItem("user"));
+var storage = JSON.parse(localStorage.getItem("highscores"));
 var container = document.getElementById("highscore-container");
+var clearHighScores = document.querySelector("#clear-high-scores");
 
 if (storage === null) {
     empty()
 } else {
-    AddUser()
+    showHighScores()
 }
 
 function empty() {
+    // clear the container
+    container.innerHTML = "";
     //create element h1
     var highscore = document.createElement("h1");
     //set the elements text content = no highscores
@@ -16,7 +19,7 @@ function empty() {
     container.append(highscore);
 }
 
-function addUser() {
+function showHighScores() {
     // clear the container
     container.innerHTML = "";
     // create ul
@@ -26,9 +29,15 @@ function addUser() {
     // then make a for loop through storage
     for (var i = 0; i < storage.length; i++) {
         var listItem = document.createElement("li")
-        listItem.textContent = "name: " + storage[i].name + " score: " + storage[i].score;
+        listItem.textContent = "name: " + storage[i].initials + " score: " + storage[i].score;
         container.append(listItem);
     }
     // in the loop we want to create a li for each storage item at [i]
     // append
 }
+
+
+clearHighScores.addEventListener("click", function() {
+    localStorage.setItem("highscores", null);
+    empty();
+});

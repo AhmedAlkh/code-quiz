@@ -6,29 +6,33 @@ var intro = document.querySelector("#introduction");
 var answerButtons = document.querySelector("#answer-buttons");
 var resultBox = document.querySelector("#result-box");
 var result = document.querySelector("#result");
+var results = document.querySelector("#results");
+var finalScore = document.querySelector("#final-score");
+var initials = document.querySelector("#initials");
+var submitButton = document.querySelector("#submit-btn");
 var correctAnswer;
 var score = 0;
 var counter = 75;
 var currentQuestion = 0;
+var countDown;
 
 
 
 // Timer 
 function setTime() {   
-    counter = 75; 
-    console.log("started");
-    var countDown = setInterval(function() {
+    counter = 75;     
+    countDown = setInterval(function() {
         counter --;        
-        if (counter === -1) {            
-            clearInterval(countdown);
+        if (counter < 0) {                        
+            endQuiz();
+        } else {
+            time.innerText = counter; 
         }
-        time.textcontent = counter; 
     }, 1000);
 };
 // Timer ends
 
-function startQuiz() {
-    var showQuestions = document.getElementById("#questions");
+function startQuiz() {    
     intro.classList.add("hidden");
     questionBox.classList.remove("hidden");
     currentQuestion = 0;    
@@ -44,19 +48,31 @@ function startQuiz() {
 
 function showNextQuestion() {    
     var question = questions[currentQuestion];
-    questionTitle.innerHTML = question.title;
+    console.log(question);    
     console.log("Question #" + currentQuestion);
-    console.log(question.title);
-    question.choices.forEach(function(choice, index) {
-        var button = document.querySelector("#answer" + index);
-        button.innerHTML = choice;     
-        button.setAttribute("correctAnswer", question.correctAnswer);
-        
-        //answerButtons.appendChild(button);
-        
-    });
+    if (question === undefined) {
+        endQuiz();
+
+    } else {
+        questionTitle.innerHTML = question.title;
+        question.choices.forEach(function(choice, index) {
+            var button = document.querySelector("#answer" + index);
+            button.innerHTML = choice;     
+            button.setAttribute("correctAnswer", question.correctAnswer);            
+            //answerButtons.appendChild(button);
+            
+        });
+    }
     console.log(question);
 }
+
+function endQuiz() {
+    questionBox.classList.add("hidden");
+    results.classList.remove("hidden");
+    finalScore.innerHTML = score;   
+    clearInterval(countDown); 
+}
+
 
 // Questions, options, answers
 var questions = [
@@ -88,6 +104,22 @@ var questions = [
 ];
 
 startButton.addEventListener("click", startQuiz);
+submitButton.addEventListener("click", function() {
+    console.log(initials.value);
+    var userInitials = initials.value;
+    var storage = JSON.parse(localStorage.getItem("highscores"));
+    if (storage === null) {
+        storage = [];
+    }
+    storage.push({
+        initials: userInitials,
+        score: score
+    });
+    localStorage.setItem("highscores",JSON.stringify(storage));
+    window.location = "./assets/highscore.html";
+
+});
+
 
 var numberOfAnswers = 4;
 for (i = 0; i < numberOfAnswers; i++) {
@@ -98,6 +130,7 @@ for (i = 0; i < numberOfAnswers; i++) {
     
         if (this.getAttribute("correctAnswer") == this.innerHTML) {
             result.innerHTML = "Correct!";
+            score += 20;
         } else {
             result.innerHTML = "Wrong!";
             counter -= 10;

@@ -1,11 +1,6 @@
 # code-quiz
 
 ## Updated
-- Added stylesheet for highscores
-
-
-## To do
-- Style with CSS
 - Make Start Quiz button start the quiz
 - Make a 75 second timer start when the quiz starts
 - Create questions to ask user
@@ -15,3 +10,7 @@
 - Users score should be logged in high scores
 - Go back button in results screen
 - Clear high score button in results screen
+
+## To do
+- Style with CSS
+- Clean up code
