@@ -14,7 +14,7 @@ function empty() {
     //create element h1
     var highscore = document.createElement("h1");
     //set the elements text content = no highscores
-    highscore.textContent = "No Highscores";
+    highscore.textContent = "No high scores";
     // append it to the highscore container
     container.append(highscore);
 }
@@ -32,10 +32,7 @@ function showHighScores() {
         listItem.textContent = "name: " + storage[i].initials + " score: " + storage[i].score;
         container.append(listItem);
     }
-    // in the loop we want to create a li for each storage item at [i]
-    // append
 }
-
 
 clearHighScores.addEventListener("click", function() {
     localStorage.setItem("highscores", null);

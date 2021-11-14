@@ -7,7 +7,7 @@
   
 .backBtn {
     text-decoration: none;
-    padding: 6px 12px;
+    padding: 7px 12px;
     background-color: #4B0082;
     color: white;
     border-radius: 6px;
@@ -16,4 +16,20 @@
 
 .backBtn:hover {
     background-color: violet;
+}
+
+#clear-high-scores {
+    text-decoration: none;
+    padding: 6px 12px;
+    background-color: #4B0082;
+    color: white;
+    border-radius: 6px;
+}
+
+#clear-high-scores:hover {
+    background-color: violet;
+}
+
+.hs-wrapper {
+    display: block;
 }

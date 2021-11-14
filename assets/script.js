@@ -16,8 +16,6 @@ var counter = 75;
 var currentQuestion = 0;
 var countDown;
 
-
-
 // Timer 
 function setTime() {   
     counter = 75;     
@@ -32,6 +30,7 @@ function setTime() {
 };
 // Timer ends
 
+// Start quiz
 function startQuiz() {    
     intro.classList.add("hidden");
     questionBox.classList.remove("hidden");
@@ -43,9 +42,9 @@ function startQuiz() {
     //show the first question
     showNextQuestion();
 };
+// Start quiz ends
 
-
-
+// Generate questions
 function showNextQuestion() {    
     var question = questions[currentQuestion];
     console.log(question);    
@@ -59,20 +58,21 @@ function showNextQuestion() {
             var button = document.querySelector("#answer" + index);
             button.innerHTML = choice;     
             button.setAttribute("correctAnswer", question.correctAnswer);            
-            //answerButtons.appendChild(button);
             
         });
     }
     console.log(question);
 }
+// Generate questions
 
+// End quiz
 function endQuiz() {
     questionBox.classList.add("hidden");
     results.classList.remove("hidden");
     finalScore.innerHTML = score;   
     clearInterval(countDown); 
 }
-
+//End quiz ends
 
 // Questions, options, answers
 var questions = [
@@ -102,8 +102,11 @@ var questions = [
         correctAnswer: "console.log",
     },
 ];
+// Questions, options, answers ends
 
 startButton.addEventListener("click", startQuiz);
+
+// Submit button
 submitButton.addEventListener("click", function() {
     console.log(initials.value);
     var userInitials = initials.value;
@@ -117,10 +120,10 @@ submitButton.addEventListener("click", function() {
     });
     localStorage.setItem("highscores",JSON.stringify(storage));
     window.location = "./assets/highscore.html";
-
 });
+// Submit button ends
 
-
+// Finding answers loop: correct = +20 points, incorrect = -10 seconds on timer.
 var numberOfAnswers = 4;
 for (i = 0; i < numberOfAnswers; i++) {
      
@@ -139,29 +142,4 @@ for (i = 0; i < numberOfAnswers; i++) {
         showNextQuestion();
     });
     }
-
-// Questions, options, answers ends
-
-// Local storage
-/*
-
-When user clicks the submit buttons
-add click event listener
-
-//Highscore
-var storage = JSON.parse(localStorage.getitem("user"));
-if(storage === null) {
-    storage = []; - empty array
-}
-var user = {
-name: input.value,
-score: score, 
-};
-
-storage.push(user);
-localStorage.setItem("user", JSON.strigify(storage));
-
-JSON.stringify to send it(store), JSON.parse to get it(retreive).
-*/
-
-// score += 20 - add this to if statements for questions. If question is answered correctly, add 20 points.
+// Finding answers loop ends
